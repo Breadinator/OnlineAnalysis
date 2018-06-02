@@ -1,4 +1,4 @@
-import json 
+import json #not used in the actual program, but I used it for testing and I'm lazy af
 from urllib.request import urlopen
 from time import sleep #1 api call a second max
 
@@ -27,7 +27,7 @@ class get: #all get.*() function args given as strings or ints where appropriate
 		url = "https://a.4cdn.org/" + str(board) + "/thread/" + str(thread) + "#p" + str(reply) + ".json"
 		return urlopen(url).read().decode()
 
-class mass: #arg "boards" given as tuple of array
+class mass: #arg "boards" given as tuple or array
 	def catalog(boards):
 		catalogs = {}
 		for i in boards:
