@@ -9,7 +9,7 @@ class get:
 class analyse:
 	def type(word):
 		info = get.word(word)['results']
-		blank = {
+		types = {
 			'noun': 0,
 			'verb': 0,
 			'adjective': 0,
@@ -21,7 +21,6 @@ class analyse:
 			'exclamation': 0,
 			'other': 0
 		}
-		types = blank.copy()
 		for i in info:
 			if i['headword'] == word:
 				orig = types.copy()
