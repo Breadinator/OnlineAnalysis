@@ -2,13 +2,16 @@ import json #not used in the actual program, but I used it for testing and I'm l
 from urllib.request import urlopen
 
 class get:
-	def word(word):
-		url = "https://api.pearson.com/v2/dictionaries/entries?headword=" + str(word)
+	def word(word, dictionary="all"):
+		if dictionary == "all":
+			url = "https://api.pearson.com/v2/dictionaries/entries?headword=" + str(word)
+		else:
+			url = "https://api.pearson.com/v2/dictionaries/" + str(dictionary) + "/entries?headword=" + str(word)
 		return json.loads(urlopen(url).read().decode())
 
 class analyse:
 	def type(word):
-		info = get.word(word)['results']
+		info = get.word(word, "ldoce5")['results']
 		types = {
 			'noun': 0,
 			'verb': 0,
